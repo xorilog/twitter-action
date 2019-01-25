@@ -22,3 +22,16 @@ export TWITTER_ACCESS_SECRET=xxx
 ./twitter-action -message "Hello Twitter :)"
 
 ```
+
+# Docker
+```
+# If building locally
+docker build -t xorilog/twitter-action .
+
+# else:
+docker run --rm -e TWITTER_CONSUMER_KEY=${TWITTER_CONSUMER_KEY} \
+       -e TWITTER_CONSUMER_SECRET=${TWITTER_CONSUMER_SECRET} \
+       -e TWITTER_ACCESS_TOKEN=${TWITTER_ACCESS_TOKEN} \
+       -e TWITTER_ACCESS_SECRET=${TWITTER_ACCESS_SECRET} \
+       xorilog/twitter-action -message "Hello Twitter :)"
+```
