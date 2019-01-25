@@ -8,6 +8,20 @@ create an account, create an app
 # retrieve the access tokens
 @see https://developer.twitter.com/en/apps
 
+# Use Action
+```
+workflow "on push tag, tweet message" {
+  on = "push"
+  resolves = ["Advertise tweetosphere"]
+}
+
+action "Advertise tweetosphere" {
+  uses = "xorilog/twitter-action@master"
+  args = ["-message", "New version is out ! $GITHUB_REF"]
+  secrets = ["TWITTER_CONSUMER_KEY", "TWITTER_CONSUMER_SECRET", "TWITTER_ACCESS_TOKEN", "TWITTER_ACCESS_SECRET"]
+}
+```
+
 # Build
 ```
 go get .
